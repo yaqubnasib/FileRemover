@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using System.Diagnostics;
 
 internal class Program
 {
@@ -9,7 +8,6 @@ internal class Program
         string userProfileDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
         string pattern = "MYE*.dmp";
 
-        Stopwatch sw = Stopwatch.StartNew();
 
         CancellationTokenSource cts = new CancellationTokenSource();
         CancellationToken token = cts.Token;
@@ -39,7 +37,6 @@ internal class Program
               }
           });
 
-        await LogMessageAsync(sw.ElapsedMilliseconds.ToString(), LogType.Info);
         Console.ReadLine();
     }
 
